@@ -1,0 +1,114 @@
+%%=============================================================================%
+%% 设置论文格式（学位、学位类型、盲评、Adobe 字体）
+%%-----------------------------------------------------------------------------%
+%% 博士、学术学位、正常版本、不使用 Adobe 字体
+% \documentclass[lang=chs, degree=phd, blindreview=false, adobe=false, academic=true]{yanputhesis}
+%% 博士、专业学位、盲评版本、不使用 Adobe 字体
+% \documentclass[lang=chs, degree=phd, blindreview=true, adobe=false, academic=false]{yanputhesis}
+%% 硕士、学术学位、正常版本、不使用 Adobe 字体
+\documentclass[lang=chs, degree=master, blindreview=false, adobe=false, academic=true]{yanputhesis}
+%% 硕士、学术学位、盲评版本、不使用 Adobe 字体
+% \documentclass[lang=chs, degree=master, blindreview=true, adobe=false, academic=true]{yanputhesis}
+%% 硕士、专业学位、正常版本、不使用 Adobe 字体
+% \documentclass[lang=chs, degree=master, blindreview=false, adobe=false, academic=false]{yanputhesis}
+%% 硕士、专业学位、盲评版本、不使用 Adobe 字体
+% \documentclass[lang=chs, degree=master, blindreview=true, adobe=false, academic=false]{yanputhesis}
+%%=============================================================================%
+
+%%=============================================================================%
+%% 导言区：请自行添加额外宏包
+%%-----------------------------------------------------------------------------%
+\usepackage{blindtext}                                      % 生成无意义文本
+\usepackage{metalogo}                                       % 软件标志
+\usepackage[binary-units=true]{siunitx}                     % 物理量单位
+\usepackage{amsmath}                                        % 基础数学库
+\usepackage[acronym]{glossaries}							% 缩略表库
+%%=============================================================================%
+
+%%=============================================================================%
+%% 缩略语
+%%-----------------------------------------------------------------------------%
+\input{chapters/glossary}
+\makeglossaries
+%%=============================================================================%
+
+%%=============================================================================%
+%% 基本信息录入
+%%-----------------------------------------------------------------------------%
+\title{基于 LaTeX 排版的 \\ 西北工业大学论文模板}{          % 中英文标题
+    Yet Another Thesis Template of \\ Northwestern Polytechnical University
+}                                                           % 请自行断行
+\author{\blindreview{李华}}{\blindreview{Hua Li}}  % 姓名（添加盲评标记）
+\date{2025年6月}{Jun 2025}                                  % 答辩日期
+\school{计算机学院}{School of Computer Science}              % 学院
+\major{计算机科学与技术}{ Computer Science and Technology}    % 专业 博士请添加 Ph
+\advisor{\blindreview{李华}}{\blindreview{Hua Li}}          % 导师（添加盲评标记）
+\advisorAcademicRank{教授}{Professor}					   % 导师中英学术职位（教授 Professor、副教授 Associate Professor、研究员 Researcher 和讲师 Lecturer）
+\studentnumber{2024001234}                                 % 学号
+%%=============================================================================%
+
+\begin{document}
+%%=============================================================================%
+%% 总前言，包含封皮页、中英文标题、中英文摘要、目录
+%%-----------------------------------------------------------------------------%
+\frontmatter                                                % 前言部分
+\maketitle                                                  % 封皮页及标题页
+
+\makeCommitteePage{                                         % 学位论文评阅人
+    \reviewers{\fullBlindReview{5}}                         % 和答辩委员会名单
+    \committee{20XX年X月X日}{
+        \defenseChair{XXX}{教授}{西北工业大学}
+        \committeeMember{XXX}{教授}{西北工业大学}
+        \committeeMember{XXX}{教授}{西北工业大学}
+        \committeeMember{XXX}{教授}{西北工业大学}
+        \committeeMember{XXX}{教授}{西北工业大学}
+        \committeeMember{XXX}{教授}{西北工业大学}
+        \defenseSecretary{XXX}{教授}{西北工业大学}
+    }
+}
+
+\include{abst/abstc}
+\include{abst/abste}
+
+\tableofcontents                                            % 目录
+\phantomsection\addcontentsline{toc}{chapter}{缩写表}		% 缩写表（学校未做要求）
+\printglossary[type=\acronymtype,title=缩写表]				% 缩写表（学校未做要求）
+\printglossary[title=术语表]								    % 术语表（学校未做要求）
+\listoffigures                                              % 图目录（学校未做要求）
+\listoftables                                               % 表目录（学校未做要求）
+\printnomenclature                                          % 符号表（学校未做要求）
+%%=============================================================================%
+
+%%=============================================================================%
+%% 正文部分
+%%-----------------------------------------------------------------------------%
+\mainmatter
+\sDefault
+\include{chapters/chap01}
+\include{chapters/chap02}
+%%=============================================================================%
+
+%%=============================================================================%
+%% 参考文献以及附录
+%%-----------------------------------------------------------------------------%
+%% \bibliographystyle{nputhesis}                            % GB/T 7714-2015 格式
+\bibliographystyle{nputhesis-noslash}                       % 参考文献改进格式
+\bibliography{reference}                                    % 参考文献
+
+
+\appendix
+\include{chapters/appendix}
+\include{chapters/appendix1}
+
+%%=============================================================================%
+
+%%=============================================================================%
+%% 文档附页部分（致谢、参加科研情况、知识产权与原创性声明）
+%%-----------------------------------------------------------------------------%
+\backmatter                                                 % 文档附页部分
+\include{chapters/acknowledgements}                         %致谢
+\include{chapters/accomplishments}                          %参加科研情况
+\makestatement % 知识产权与原创性声明
+%%=============================================================================%
+
+\end{document}

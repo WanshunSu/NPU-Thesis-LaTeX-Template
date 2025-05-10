@@ -1,0 +1,43 @@
+\chapter{插入图表以及如何引用}
+\chaptermark{插入图表以及如何引用}
+
+\section{表格}
+\begin{table}[!h]
+    \centering
+    \caption{表格标题}
+    \label{my-label}
+    \begin{tabularx}{\textwidth}{CCCC}
+        \toprule
+        $A$ & $B$ & $A+B$ & $A\times B$ \\ \midrule
+        1   & 6   & 7     & 6           \\
+        2   & 7   & 9     & 14          \\
+        3   & 8   & 11    & 24          \\
+        4   & 9   & 13    & 36          \\
+        5   & 10  & 15    & 50          \\ \bottomrule
+    \end{tabularx}
+\end{table}
+
+\section{插图}
+\begin{figure}[htb]
+    \centering
+    \includegraphics[scale=0.2]{figures/logo.pdf}
+    \caption{这是校徽}
+    \label{fig:example}
+\end{figure}
+
+
+\section{插入源代码}
+这里给出一个 Hello World 的样例，如\autoref{code:hello-world} 所示。
+
+\begin{lstlisting}[language={C++}, label={code:hello-world},
+    caption={Hello World.cpp}]
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    // output "Hello World!"
+    cout << "Hello World!" << endl;
+    return 0;
+}
+\end{lstlisting}
