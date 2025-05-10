@@ -19,6 +19,7 @@
 2. 注册或登录Overleaf账号
 3. 将该仓库文件下载上传Overleaf即可使用
 4. 修改`yanputhesis-sample.tex`内容，撰写你的论文！
+5. 需要将编译器更换为`XeLaTeX`运行
 
 ---
 
