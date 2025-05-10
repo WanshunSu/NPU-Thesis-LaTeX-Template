@@ -30,7 +30,7 @@
 > Shen, S., Wang, Z., Zhang, J., & Zhang, W. (2019). Yet Another LaTeX Template for NPU Thesis. *GitHub repository*. https://doi.org/10.5281/zenodo.4159248  
 > GitHub 链接：https://github.com/NWPUMetaphysicsOffice/Yet-Another-LaTeX-Template-for-NPU-Thesis
 
-> 本人主要在其基础上进行了适配优化，使模板能够直接运行于Overleaf平台，提升了可用性与可移植性。
+本人主要在其基础上进行了适配优化，使模板能够直接运行于Overleaf平台，提升了可用性与可移植性。
 
 ---
 
